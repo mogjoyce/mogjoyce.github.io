@@ -156,7 +156,7 @@ KeyboardInputManager.prototype.listen = function () {
 
     if (!modifiers && event.which === 82) {
       event.preventDefault();
-      this.emit("restart");
+      self.emit("restart");
     }
   });
 };
@@ -279,13 +279,11 @@ function GameManager(InputManager) {
 }
 
 GameManager.prototype.restart = function () {
-  this.actuator.continueGame();
   this.setup();
 };
 
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
-  this.actuator.continueGame();
 };
 
 GameManager.prototype.isGameTerminated = function () {
