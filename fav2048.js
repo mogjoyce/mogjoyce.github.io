@@ -155,14 +155,10 @@ KeyboardInputManager.prototype.listen = function () {
     }
 
     if (!modifiers && event.which === 82) {
-      self.restart.call(self, event);
+      event.preventDefault();
+      this.emit("restart");
     }
   });
-};
-
-KeyboardInputManager.prototype.restart = function (event) {
-  event.preventDefault();
-  this.emit("restart");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
